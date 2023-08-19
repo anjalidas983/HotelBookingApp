@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+login
+{% endblock %}
+{% block cssfiles %}
+<link rel="stylesheet" href="{% static 'registerform.css' %}">
+{%  endblock %}
+
+{% block content %}
+<h3 class="text-center m-3">Login with your credentials </h3>
+<div id="register-form">
+    <form action="{% url 'account:user_login' %}" method="POST">
+        {% csrf_token %}
+        <div class="form-control">
+            {% for login_field in login_form %}
+            {{login_field.label_tag}}
+            {{login_field}}
+            {% endfor %}
+            <div class="button-container mt-3">
+            <button type="submit">Login</button>
+                </div>
+        </div>
+        {% if messages %}
+        
+            {% for message in messages %}
+        <p style="color:red;text-align:center;font:inherit;">{{message}}</p>
+        {% endfor %}
+       
+        {% endif %}
+    </form>
+
+
+
+</div>
+
+{% endblock %}

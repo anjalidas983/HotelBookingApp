@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+ registration
+{% endblock %}
+
+{% block cssfiles %}
+<link rel="stylesheet" href="{% static 'registerform.css' %}">
+{% endblock %}
+{% block content %}
+<h4 class="text-center mt-3">Register or Sign up  here </h4>
+<div id="register-form">
+<form  action="{% url 'account:user-register' %}" method="POST">
+ {% csrf_token %}
+    <div class="form-control">
+        {% for form_field in form %}
+    {{ form_field.label_tag }}
+    {{ form_field }}
+        {{ form_field.errors }}
+     {% endfor %}
+             </div>
+
+     <button type="submit">Register</button>
+</form>
+<p class="have-account m-2">Already have an account?<a href="{% url 'account:user_login' %}">Log in</a></p>
+</div>
+
+{% endblock %}

@@ -1,0 +1,35 @@
+.hotel-card {
+    display: grid;
+    grid-template-columns: 1fr 2fr; /* Adjust column sizes as needed */
+    border: 1px solid #ccc;
+    padding: 15px;
+    margin: 10px;
+    border-radius:12px;
+    box-shadow: 0 4px 7px grey;
+}
+
+.description {
+    padding: 7px;
+    border-left: 1px solid #ccc;
+}
+h2 {
+    margin-top: 0;
+    font-size: 1.5rem;
+}
+
+p {
+    margin: 0;
+}
+
+.button-container {
+margin-top:1px;
+position:relative;
+left:190%;
+}
+.button-container button {
+background-color:#003366;
+color:white;
+padding:3px;
+border:1px solid #003366;
+border-radius:5px;
+}

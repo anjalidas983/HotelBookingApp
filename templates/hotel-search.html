@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+hotel-search-result
+{% endblock %}
+{% block cssfiles %}
+<link rel="stylesheet" href="{% static 'hotel-search.css' %}">
+{% endblock %}
+{% block content %}
+
+<div class="container m-4">
+    <h4>You are searching {{location}}:{{total_hotel}} properties found.</h4>
+    <div class="row">
+        {% for hotel in hotels %}
+        <div class="col-md-6">
+            <div class="hotel-card">
+                <div class="image">
+                <img src="{{hotel.hotelimage.url}}"  style="height:170px;width:200px;border:1px solid white;border-radius:6px;"  alt="{{hotel.hotel_name}} image">
+                    </div>
+                <div class="description">
+                    <h4 style="color:blue;font:inherit;font-size:20px;font-weight:bold;">{{hotel.hotel_name}}</h4>
+                    <p style="color:black;font:inherit;font-size:15px;">Location:{{location}}</p>
+
+                </div>
+                <div class="button-container">
+                    <button>See Availability</button>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+
+
+
+
+
+
+
+{% endblock %}
