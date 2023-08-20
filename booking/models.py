@@ -53,6 +53,8 @@ class Room(models.Model):
     total_room = models.IntegerField()
     room_rate = models.IntegerField()
     image = models.ImageField(upload_to='rooms/')
+    def __str__(self):
+        return f"{self.room_category}"
 
 
 
