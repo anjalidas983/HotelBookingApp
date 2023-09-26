@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+booking-payment
+{% endblock %}
+{% block cssfiles %}
+<link rel="stylesheet" href="{% static 'paymentpage.css' %}">
+{% endblock %}
+{% block  content %}
+<div class="container-fluid pt-4">
+  <div class="form-container">
+   <form method="POST" action="{% url 'booking:booking_payment' %}">
+    {% csrf_token %}
+ <label>Username</label>
+ <input type="text" name="user" value="{{request.user}}">
+ <label>Hotel</label>
+ <input type="text"  name="hotel" value="{{room.hotel.hotel_name}}">
+ <label>Room</label>
+ <input type="text"  name="room" value="{{room.room_category.category_type}}">
+ <label>Number of Rooms Booked</label>
+ <input type="number" name="num_room"  value="{{room_booked}}">
+ <label>Room Rate</label>
+ <input type="number" name="total"   value="{{total_rate}}">
+ <div class="text-center p-3">
+ <button><a href="{% url  'booking:booking_payment' %}">Book Your Room</a></button>
+</div>
+</form> 
+</div>
+  
+
+
+</div>
+
+
+{% endblock %}

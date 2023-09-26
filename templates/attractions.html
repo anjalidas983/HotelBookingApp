@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+booking-form
+{% endblock %}
+{% block cssfiles %}
+<link rel="stylesheet" href="{% static  'attractions.css'  %}">
+
+{% endblock %}
+{% block  content %}
+
+<div class="container-fluid">
+
+    
+    <div class="image-grid">
+        {% for place in places %}
+            <div class="image-container">
+                <img src="{{ place.image.url }}" alt="{{ place.name }}">
+                <div class="text-overlay">{{ place.name }}</div>
+            </div>
+        {% endfor %}
+    </div>
+ </div>
+    
+
+{% endblock %}

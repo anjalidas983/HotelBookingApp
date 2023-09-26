@@ -9,7 +9,7 @@
 }
 
 .description {
-    padding: 7px;
+    padding: 5px;
     border-left: 1px solid #ccc;
 }
 h2 {
@@ -22,9 +22,9 @@ p {
 }
 
 .button-container {
-margin-top:1px;
+margin-bottom:3px;
 position:relative;
-left:190%;
+left:120%;
 }
 .button-container button {
 background-color:#003366;

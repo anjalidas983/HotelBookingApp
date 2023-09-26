@@ -4,10 +4,49 @@
 searching-available-hotels
 {% endblock %}
 {% block cssfiles %}
+<link rel="stylesheet" href="{% static 'hotel-available.css' %}">
 
 {% endblock %}
 {% block content %}
 
-{{rooms_by_location}}
+<div class="container-fluid pt-3">
+    {% for hotel in rooms_available %}
+        <div style="box-shadow: 0 2px 8px ; padding: 4px;margin-bottom:10px;">
+        <div class="row">
+        <div class="col-md-10 p-3 m-2">
+            <div class="row">
+                <div class="col-md-3">
+                    <img src="{{hotel.images.url}}" alt="hotel image" style="height:220px;width:250px;border:1px solid white;border-radius:6px;">
+                </div>
+                <div class="col-md-6">
+                    <h3 style="color: blue;">{{hotel.hotel_name}}</h3>
 
+                    <h5>Available rooms:{{hotel.available_rooms}}{{hotel.room_category.type}}</h5>
+                    <h5>Air Conditioned :
+                        {% if hotel.room_category.air_conditioned %} Yes
+                        {% else %}
+                            No
+                        {% endif %}
+                    </h5>
+                    <h5 class="facility-list">
+                        Facilities:
+                        {% for facility in hotel.facilities %}
+                        {{facility.name}},
+                    
+                        {% endfor %}
+                    </h5>
+                <div style="text-align: center;padding: 25px;">
+                <button class="button-styling"><a href="{% url 'booking:detail-view' hotel.hotel_id hotel.room_category.type  %}" style="text-decoration: none;color: white;">VIEW DETAILS</a></button>
+                    
+            </div>
+            </div>
+        </div>
+        
+
+    </div>
+    
+</div>
+</div>
+{% endfor %}
+</div>
 {% endblock %}

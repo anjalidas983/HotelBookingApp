@@ -5,6 +5,7 @@ Hotel Booking Website
 {% endblock %}
 
 {% block cssfiles %}
+<link rel="stylesheet" href="{% static  'attractions.css'  %}">
 {% endblock %}
 {% block content %}
 <div class="container-fluid p-0">
@@ -40,9 +41,23 @@ Hotel Booking Website
   </div>
     </div>
 
-<div class="container-fluid p-2">
-    <h3 class="font-weight-bold">Trending Destinations</h3>
-    <p>Most popular destinations for travellers</p>
+<div class="container-fluid pt-4">
+    <!-- <h3 class="font-weight-bold ml-5">Trending Destinations</h3> -->
+    <h4 class="ml-2 font-weight-bold ml-5">Most popular destinations for travellers</h4>
+    <div class="image-grid">
+        {% for place in places %}
+            <div class="image-container">
+                <img src="{{ place.image.url }}" alt="{{ place.name }}">
+                <div class="text-overlay">{{ place.name }}</div>
+            </div>
+        {% endfor %}
+    </div>
+</div>
+<div class="container-fluid">
+    <div style="background-color:#003366;height: 100px;margin: 0px;">
+
+    </div>
+
 </div>
 {% endblock %}
 

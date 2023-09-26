@@ -1,0 +1,43 @@
+/* Style for the form container */
+.form-container {
+    max-width: 500px;
+    margin-top: 80px;
+    margin-left: 20%;
+    /* margin: 0 auto; */
+    padding: 10px;
+    background-color: #f5f5f5;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Style for the form labels */
+.form-container label {
+    font-weight: bold;
+}
+
+/* Style for the form input fields */
+.form-container input[type="text"],
+.form-container input[type="number"] {
+    width: 100%;
+    padding: 5px;
+    margin-bottom: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+/* Style for the submit button */
+.form-container button {
+    background-color: #032f5d;
+    color: #fff;
+    padding: 8px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* Style for the link within the button */
+.form-container button a {
+    text-decoration: none;
+    color: #fff;
+}

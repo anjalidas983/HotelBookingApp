@@ -37,13 +37,13 @@
 <nav class="navbar navbar-expand-lg navbar-light navbar-custom justify-content-center pb-3">
     <ul class="navbar-nav ">
         <li class="nav-item">
-            <a class="nav-link text-light" href="#"><i class="fa-sharp fa-solid fa-bed p-1" style="font-size:20px;"></i>Hotels</a>
+            <a class="nav-link text-light" href="{% url 'booking:all-hotels' %}"><i class="fa-sharp fa-solid fa-bed p-1" style="font-size:20px;"></i>Hotels</a>
         </li>
          <li class="nav-item">
-            <a class="nav-link text-light" href="#"><i class="fa-solid fa-camera p-1" style="font-size:20px;"></i>Attractions</a>
+            <a class="nav-link text-light" href="{% url 'booking:attractions' %}"><i class="fa-solid fa-camera p-1" style="font-size:20px;"></i>Attractions</a>
         </li>
          <li class="nav-item">
-            <a class="nav-link text-light" href="#"><i class="fa-solid fa-location-dot p-1" style="font-size:20px;"></i>Location</a>
+            <a class="nav-link text-light" href="{% url 'booking:attractions' %}"><i class="fa-solid fa-location-dot p-1" style="font-size:20px;"></i>Location</a>
         </li>
         <li class="nav-item ml-auto">
       <!-- Search bar -->

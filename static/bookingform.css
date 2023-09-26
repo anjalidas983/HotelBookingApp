@@ -1,0 +1,36 @@
+.form-container {
+    width: 580px;
+    max-width: 100%;
+    margin-top: 60px;
+    margin-left: 12%;
+    padding: 10px;
+    background-color: #f5f5f5;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+
+.form-container label {
+    font-weight: bold;
+    display: block;
+    margin-bottom: 3px;
+}
+.form-container input[type="text"],
+    .form-container input[type="number"] {
+        width: 100%;
+        padding: 8px;
+        margin-bottom: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+    }
+
+    /* Style for the submit button */
+    .form-container input[type="submit"] {
+        background-color: #023062;
+        color: #fff;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }

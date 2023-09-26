@@ -25,10 +25,10 @@ class Hotel(models.Model):
     place = models.ForeignKey(Place, on_delete=models.CASCADE)
     owner = models.CharField(max_length=100)
     description = models.TextField(max_length=500)
-    facilities = models.ManyToManyField(Facility)
-    hotelimage = models.ImageField(upload_to='hotels/',null=True)
+    facilities = models.ManyToManyField(Facility) 
+    hotelimage = models.ImageField(upload_to='hotels/', null=True)
     def __str__(self):
-        return self.hotel_name
+        return f"{self.hotel_name}"
 
 class HotelImage(models.Model):
     hotel = models.ForeignKey(Hotel,on_delete=models.CASCADE,related_name='stay')
@@ -78,7 +78,6 @@ class Reviews(models.Model):
     rating = models.IntegerField()
     def __str__(self):
         return f"{self.rating}"
-
 
 
 

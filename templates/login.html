@@ -21,6 +21,7 @@ login
             <button type="submit">Login</button>
                 </div>
         </div>
+        <p style="font-weight: bold;text-align: center;padding: 6px;">You don't have an account? <a style="font-weight: bold;text-decoration: none;" href="{% url 'account:user-register' %}">Sign up</a></p>
         {% if messages %}
         
             {% for message in messages %}

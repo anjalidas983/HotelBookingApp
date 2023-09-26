@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+booking-form
+{% endblock %}
+{% block cssfiles %}
+<link rel="stylesheet" href="{% static 'bookingform.css' %}">
+{% endblock %}
+{% block  content %}
+
+<div class="container-fluid pt-5">
+    <div class="form-container">
+    <form method="POST" action="{% url  'booking:reserve-room' id_data.hotel_id roomid_data.room_id %}">
+        {% csrf_token %}
+        
+        <!-- {{form.as_table}} -->
+        <div>
+            <label for="{{ form.user.id_for_label }}">User:</label>
+            {{ form.user }}
+        </div>
+        <div>
+            <label for="{{ form.hotel.id_for_label }}">Hotel:</label>
+            {{ form.hotel }}
+        </div>
+        <div>
+            <label for="{{ form.room.id_for_label }}">Room:</label>
+            {{ form.room }}
+        </div>
+        <div>
+            <label for="{{ form.rooms_booked.id_for_label }}">Number of Rooms:</label>
+            {{ form.rooms_booked }}
+        </div>
+        <div>
+            <label for="{{ form.check_in.id_for_label }}">check_in:</label>
+            {{ form.check_in }}
+        </div>
+        <div>
+            <label for="{{ form.check_out.id_for_label }}">check_out:</label>
+            {{ form.check_out }}
+        </div>
+        <div class="text-center p-3">
+        <input type="submit"></input>
+    </div>
+       
+    </form>
+    
+</div>
+</div>
+{% endblock %}

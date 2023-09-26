@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+search-result
+{% endblock %}
+{% block cssfiles %}
+<link rel="stylesheet" href="{% static 'hotel-available.css' %}">
+{% endblock %}
+{% block  content %}
+<div class="container pt-3">
+    <div>
+     
+      <h2 style="text-align:left;font-weight: bold;color: blue;">{{hotel.hotel_name}}-{{hotel.place.name}}</h2>
+  <div class="row">
+      <div class="col-sm-7 mb-3">
+      <img src="{{hotel.hotelimage.url}}" alt="room image" style="width: 820px; height:320px; border-radius: 10px;" >
+  </div>  
+     </div>
+     <div class="row">
+      {% for hotelimage in hotelimages %}
+      <div class="col-sm-3">
+      <img src="{{hotelimage.image.url}}" alt="hotel image" style="max-width: 100%; height: auto; border-radius: 10px;">
+  </div>
+      {% endfor %}
+  </div>
+  
+  </div>
+  
+      
+      <p>{{hotel.description}}</p>
+  
+      <p style="font-weight: bold;font-size: 18px;">Facilities :
+          {% for facility in hotel.facilities.all %}
+          {{facility.name}},
+          {% endfor %}
+      </p>
+      <div class="button-container">
+      <button class="button-style">
+       <a  style="text-decoration: none;color: white;"    href="{% url 'booking:home' %}"> BOOK ROOM</a>  
+       </button>
+  </div>
+
+</div>
+{% endblock %}

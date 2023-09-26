@@ -1,0 +1,88 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+hotel-details
+{% endblock %}
+{% block cssfiles %}
+<link rel="stylesheet" href="{% static 'hotel-available.css' %}">
+
+{% endblock %}
+{% block content %}
+<div class="container pt-3">
+  <div>
+    {% for room in rooms %}
+
+    <h2 style="text-align:left;font-weight: bold;color: blue;">{{room.hotel.hotel_name}}-{{room.place.name}}</h2>
+<div class="row">
+    <div class="col-sm-7 mb-3">
+    <img src="{{room.image.url}}" alt="room image" style="width: 820px; height:320px; border-radius: 10px;" >
+</div>  
+   </div>
+   <div class="row">
+    {% for hotelimage in hotelimages %}
+    <div class="col-sm-3">
+    <img src="{{hotelimage.image.url}}" alt="hotel image" style="max-width: 100%; height: auto; border-radius: 10px;">
+</div>
+    {% endfor %}
+</div>
+
+</div>
+
+    <h5>{{room.room_category.category_type}}</h5>
+    <p>{{room.hotel.description}}</p>
+
+    <p style="font-weight: bold;font-size: 18px;">Facilities :
+        {% for facility in room.hotel.facilities.all %}
+        {{facility.name}},
+        {% endfor %}
+    </p>
+
+    <h5>Air Conditioned:{% if room.room_category.is_ac %}
+        Yes 
+        {% else %}
+        No 
+        {% endif %}
+    </h5>
+    <h5>Room Rate: {{room.room_rate}}</h5>
+    <div class="button-container">
+    <button class="button-style">
+     <a  style="text-decoration: none;color: white;"    href="{% url 'booking:hotel_booking' room.hotel.id  room.room_category.num_people %}"> BOOK NOW</a>  
+     </button>
+</div>
+  
+    {% endfor%}
+  </div>
+
+<div class="form-container">
+    <form method="POST" class="review-form" >
+        {% csrf_token %}
+        {{form}}
+    <input type="submit" class="submit-button">
+    </form>
+    {% if messages %}
+    <div class="message-container">
+    {% for message in messages %}
+   <p style="font-weight: bold;text-align: center;">{{message}}</p> 
+   
+    {% endfor %}
+</div>
+</div>
+
+    {% endif %}
+
+    <div class="pt-5">
+    <div class="reviews">
+        <h3 style="font-weight:bold;text-align: center;">Reviews</h3>
+    {% for review in reviews %}
+    <p >{{request.user}}:{{review.review}}</p>
+     <p>Rating:{{review.rating}}</p>
+    
+    {% endfor %}
+</div>
+</div>
+
+
+
+</div>
+
+{% endblock %}

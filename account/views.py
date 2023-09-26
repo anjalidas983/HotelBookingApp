@@ -6,8 +6,6 @@ from django.contrib import messages
 
 # Create your views here.
 def registration_view(request):
-    # import pdb
-    # pdb.set_trace()
     if request.method == 'POST':
         form = UserForm(request.POST)
         if form.is_valid():
@@ -20,7 +18,6 @@ def registration_view(request):
 
 
 def login_view(request):
-
     if request.method == 'POST':
         form = UserAuthenticationForm(data=request.POST)
         if form.is_valid():
